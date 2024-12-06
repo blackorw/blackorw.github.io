@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星光闪烁首页</title>
+  <style>
+    /* 全局样式 */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* 隐藏超出页面的内容 */
+      background-color: black; /* 黑色背景，类似夜空 */
+    }
+
+    /* 星星样式 */
+  .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      border-radius: 50%;
+      opacity: 0; /* 初始透明度为0，后面通过动画显示 */
+      animation: twinkle 3s infinite ease-in-out; /* 闪烁动画，时长3秒，无限循环，缓动效果 */
+    }
+
+    /* 闪烁动画定义 */
+    @keyframes twinkle {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 通过JavaScript动态生成星星元素 -->
+  <script>
+    // 获取页面的宽度和高度
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // 生成一定数量的星星（这里生成200颗，可以根据需要调整数量）
+    const numStars = 200;
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * width + 'px';
+      star.style.top = Math.random() * height + 'px';
+      document.body.appendChild(star);
+    }
+  </script>
+
+  <!-- 弹出确认提示框的JavaScript代码 -->
+  <script>
+    function showConfirmation() {
+      const confirmation = confirm("确认要看吗?");
+      if (confirmation) {
+        window.location.href = "2222.html"; // 如果点击yes，跳转到书信页面
+      } else {
+        showConfirmation(); // 如果点击no，重新弹出提示框
+      }
+    }
+
+    window.onload = function () {
+      showConfirmation();
+    };
+  </script>
+</body>
+
+</html>
