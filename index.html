@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>如题 如此</title>
+  <style>
+    /* 全局样式 */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* 隐藏超出页面的内容 */
+      background-color: black; /* 黑色背景，类似夜空 */
+    }
+
+    /* 星星样式 */
+  .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    /* 闪烁动画定义 */
+    @keyframes twinkle {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* 模态框背景遮罩层样式 */
+  .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 10;
+    }
+
+    /* 模态框内容区域样式 */
+  .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+  .modal-content button {
+      margin: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    /* 文字容器样式 */
+  .text-container {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      width: 80%;
+    }
+
+    /* 单个文字样式 */
+  .text-letter {
+      opacity: 0;
+      display: inline-block;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: calc(0.1s * var(--index));
+    }
+
+    /* 文字淡入动画定义 */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 通过JavaScript动态生成星星元素 -->
+  <script>
+    // 获取页面的宽度和高度
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // 生成一定数量的星星（这里生成200颗，可以根据需要调整数量）
+    const numStars = 200;
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * width + 'px';
+      star.style.top = Math.random() * height + 'px';
+      document.body.appendChild(star);
+    }
+  </script>
+
+  <!-- 模态框结构 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <p>确认要看吗?</p>
+      <button id="yesButton">Yes</button>
+      <button id="noButton">No</button>
+    </div>
+  </div>
+
+  <div class="text-container" id="textContainer">
+    <span class="text-letter" style="--index: 1;">很</span>
+    <span class="text-letter" style="--index: 2;">抱</span>
+    <span class="text-letter" style="--index: 3;">歉</span>
+    <span class="text-letter" style="--index: 4;">，</span>
+    <span class="text-letter" style="--index: 5;">再</span>
+    <span class="text-letter" style="--index: 6;">次</span>
+    <span class="text-letter" style="--index: 7;">打</span>
+    <span class="text-letter" style="--index: 8;">扰</span>
+    <span class="text-letter" style="--index: 9;">你</span>
+    <span class="text-letter" style="--index: 10;">，</span>
+    <span class="text-letter" style="--index: 11;">为</span>
+    <span class="text-letter" style="--index: 12;">这</span>
+	
+	<span class="text-letter" style="--index: 1;">次</span>
+    <span class="text-letter" style="--index: 2;">，</span>
+    <span class="text-letter" style="--index: 3;">为</span>
+    <span class="text-letter" style="--index: 4;">曾</span>
+    <span class="text-letter" style="--index: 5;">经</span>
+    <span class="text-letter" style="--index: 6;">。</span>
+    <span class="text-letter" style="--index: 7;">我</span>
+    <span class="text-letter" style="--index: 8;">太</span>
+    <span class="text-letter" style="--index: 9;">悲</span>
+    <span class="text-letter" style="--index: 10;">伤</span>
+    <span class="text-letter" style="--index: 11;">，</span>
+    <span class="text-letter" style="--index: 12;">太</span>
+	
+	<span class="text-letter" style="--index: 1;">破</span>
+    <span class="text-letter" style="--index: 2;">碎</span>
+    <span class="text-letter" style="--index: 3;">。</span>
+    <span class="text-letter" style="--index: 4;">我</span>
+    <span class="text-letter" style="--index: 5;">不</span>
+    <span class="text-letter" style="--index: 6;">应</span>
+    <span class="text-letter" style="--index: 7;">如</span>
+    <span class="text-letter" style="--index: 8;">此</span>
+    <span class="text-letter" style="--index: 9;">出</span>
+    <span class="text-letter" style="--index: 10;">现</span>
+    <span class="text-letter" style="--index: 11;">在</span>
+    <span class="text-letter" style="--index: 12;">你</span>
+	
+	<span class="text-letter" style="--index: 1;">面</span>
+    <span class="text-letter" style="--index: 2;">前</span>
+    <span class="text-letter" style="--index: 3;">。</span>
+    <span class="text-letter" style="--index: 4;">可</span>
+    <span class="text-letter" style="--index: 5;">我</span>
+    <span class="text-letter" style="--index: 6;">却</span>
+    <span class="text-letter" style="--index: 7;">喜</span>
+    <span class="text-letter" style="--index: 8;">欢</span>
+    <span class="text-letter" style="--index: 9;">上</span>
+    <span class="text-letter" style="--index: 10;">了</span>
+    <span class="text-letter" style="--index: 11;">你</span>
+    <span class="text-letter" style="--index: 12;">，</span>
+	    <span class="text-letter" style="--index: 1;">那</span>
+    <span class="text-letter" style="--index: 2;">一</span>
+    <span class="text-letter" style="--index: 3;">刻</span>
+    <span class="text-letter" style="--index: 4;">，</span>
+    <span class="text-letter" style="--index: 5;">自</span>
+    <span class="text-letter" style="--index: 6;">卑</span>
+    <span class="text-letter" style="--index: 7;">与</span>
+    <span class="text-letter" style="--index: 8;">救</span>
+    <span class="text-letter" style="--index: 9;">赎</span>
+    <span class="text-letter" style="--index: 10;">同</span>
+    <span class="text-letter" style="--index: 11;">时</span>
+    <span class="text-letter" style="--index: 12;">生</span>
+	
+	<span class="text-letter" style="--index: 1;">长</span>
+    <span class="text-letter" style="--index: 2;">。</span>
+    <span class="text-letter" style="--index: 3;">这</span>
+    <span class="text-letter" style="--index: 4;">一</span>
+    <span class="text-letter" style="--index: 5;">切</span>
+    <span class="text-letter" style="--index: 6;">都</span>
+    <span class="text-letter" style="--index: 7;">过</span>
+    <span class="text-letter" style="--index: 8;">于</span>
+    <span class="text-letter" style="--index: 9;">轻</span>
+    <span class="text-letter" style="--index: 10;">浮</span>
+    <span class="text-letter" style="--index: 11;">，</span>
+    <span class="text-letter" style="--index: 12;">初</span>
+	
+	<span class="text-letter" style="--index: 1;">见</span>
+    <span class="text-letter" style="--index: 2;">的</span>
+    <span class="text-letter" style="--index: 3;">光</span>
+    <span class="text-letter" style="--index: 4;">芒</span>
+    <span class="text-letter" style="--index: 5;">变</span>
+    <span class="text-letter" style="--index: 6;">成</span>
+    <span class="text-letter" style="--index: 7;">了</span>
+    <span class="text-letter" style="--index: 8;">无</span>
+    <span class="text-letter" style="--index: 9;">奈</span>
+    <span class="text-letter" style="--index: 10;">。</span>
+    <span class="text-letter" style="--index: 11;">有</span>
+    <span class="text-letter" style="--index: 12;">运</span>
+	
+	<span class="text-letter" style="--index: 1;">气</span>
+    <span class="text-letter" style="--index: 2;">相</span>
+    <span class="text-letter" style="--index: 3;">遇</span>
+    <span class="text-letter" style="--index: 4;">，</span>
+    <span class="text-letter" style="--index: 5;">只</span>
+    <span class="text-letter" style="--index: 6;">是</span>
+    <span class="text-letter" style="--index: 7;">这</span>
+    <span class="text-letter" style="--index: 8;">次</span>
+    <span class="text-letter" style="--index: 9;">我</span>
+    <span class="text-letter" style="--index: 10;">不</span>
+    <span class="text-letter" style="--index: 11;">够</span>
+    <span class="text-letter" style="--index: 12;">好</span>
+	
+	    <span class="text-letter" style="--index: 1;">。</span>
+    <span class="text-letter" style="--index: 2;">在</span>
+    <span class="text-letter" style="--index: 3;">我</span>
+    <span class="text-letter" style="--index: 4;">撞</span>
+    <span class="text-letter" style="--index: 5;">见</span>
+    <span class="text-letter" style="--index: 6;">下</span>
+    <span class="text-letter" style="--index: 7;">一</span>
+    <span class="text-letter" style="--index: 8;">个</span>
+    <span class="text-letter" style="--index: 9;">月</span>
+    <span class="text-letter" style="--index: 10;">圆</span>
+    <span class="text-letter" style="--index: 11;">之</span>
+    <span class="text-letter" style="--index: 12;">夜</span>
+	
+	<span class="text-letter" style="--index: 1;">时</span>
+    <span class="text-letter" style="--index: 2;">，</span>
+    <span class="text-letter" style="--index: 3;">便</span>
+    <span class="text-letter" style="--index: 4;">该</span>
+    <span class="text-letter" style="--index: 5;">告</span>
+    <span class="text-letter" style="--index: 6;">一</span>
+    <span class="text-letter" style="--index: 7;">段</span>
+    <span class="text-letter" style="--index: 8;">下</span>
+    <span class="text-letter" style="--index: 9;">落</span>
+    <span class="text-letter" style="--index: 10;">了</span>
+    <span class="text-letter" style="--index: 11;">。</span>
+    <span class="text-letter" style="--index: 12;">最</span>
+	
+	<span class="text-letter" style="--index: 1;">后</span>
+    <span class="text-letter" style="--index: 2;">，</span>
+    <span class="text-letter" style="--index: 3;">抱</span>
+    <span class="text-letter" style="--index: 4;">歉</span>
+    <span class="text-letter" style="--index: 5;">!</span>
+    <span class="text-letter" style="--index: 6;">希</span>
+    <span class="text-letter" style="--index: 7;">望</span>
+    <span class="text-letter" style="--index: 8;">你</span>
+    <span class="text-letter" style="--index: 9;">快</span>
+    <span class="text-letter" style="--index: 10;">乐</span>
+    <span class="text-letter" style="--index: 11;">。</span>
+	
+	
+	
+  </div>
+
+  <script>
+    // 获取模态框相关元素
+    const modalOverlay = document.getElementById('modalOverlay');
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const textContainer = document.getElementById('textContainer');
+
+    function showConfirmation() {
+      modalOverlay.style.display = 'block';
+    }
+
+    function hideConfirmation() {
+      modalOverlay.style.display = 'none';
+    }
+
+    window.onload = function () {
+      showConfirmation();
+
+      yesButton.addEventListener('click', function () {
+        hideConfirmation();
+        textContainer.style.display = 'block';
+        const letters = textContainer.querySelectorAll('.text-letter');
+        letters.forEach((letter, index) => {
+          letter.style.setProperty('--index', index + 1);
+        });
+      });
+
+      noButton.addEventListener('click', function () {
+        showConfirmation();
+      });
+    }
+  </script>
+</body>
+
+
